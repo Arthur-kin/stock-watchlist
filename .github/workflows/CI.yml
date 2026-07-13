@@ -1,0 +1,25 @@
+name: CI
+
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  unit-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. copy Github's code
+        uses: actions/checkout@v4
+
+      - name: 2. set Node.js envirment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: 3. install project dependencies
+        run: npm ci
+
+      - name: 4. execute unit-test
+        run: npm run test:unit
+  
