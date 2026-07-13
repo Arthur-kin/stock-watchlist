@@ -30,7 +30,7 @@ const addStock = () => {
       <input 
         type="text" 
         v-model="searchInput" 
-        placeholder="輸入股票代號 (例: 2317)" 
+        placeholder="Input stock symbol (ex: 2317)" 
         @keyup.enter="addStock"
       />
       <button @click="addStock">新增追蹤</button>
